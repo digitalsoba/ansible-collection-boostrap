@@ -1,0 +1,15 @@
+---
+# tasks file for bootstrap
+
+- name: Debian common
+  ansible.builtin.include_tasks: debian.yml
+  when: ansible_facts['os_family'] == 'Debian'
+
+- name: Install common packages
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ common_packages }}"
+
+- name: Include users tasks
+  ansible.builtin.include_tasks: users.yml

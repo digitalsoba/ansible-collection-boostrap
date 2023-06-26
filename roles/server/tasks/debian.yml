@@ -1,0 +1,12 @@
+---
+- name: Install common apt packages
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    update_cache: yes
+    state: present
+  loop: "{{ apt_packages }}"
+
+- name: Check if sudo is present
+  ansible.builtin.group:
+    name: sudo
+    state: present

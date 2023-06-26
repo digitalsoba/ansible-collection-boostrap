@@ -1,0 +1,21 @@
+---
+# defaults file for server
+user: digitalsoba
+github_keys: https://github.com/digitalsoba.keys
+common_packages:
+  - ca-certificates
+  - curl
+  - gnupg
+  - htop
+  - openssh-server
+  - net-tools
+  - python3
+  - sudo
+  - tmux
+  - vim
+apt_packages:
+  - apt-transport-https
+  - gnupg-agent
+  - software-properties-common
+  - unattended-upgrades
+sudogroup: "{{ 'sudo' if ansible_facts['os_family'] == 'Debian' else 'wheel' }}"
