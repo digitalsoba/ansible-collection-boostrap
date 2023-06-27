@@ -1,0 +1,31 @@
+name: Ansible roles test
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  test-server-role:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        distro:
+          - debian10
+          - ubuntu2204
+          - ubuntu2004
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install molecule
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: "pip"
+      - name: Install pip requirements
+        run: pip install -r requirements.txt
+      - name: Run molecule test
+        env:
+          PY_COLORS: "1"
+          ANSIBLE_FORCE_COLOR: "1"
+          MOLECULE_DISTRO: ${{ matrix.distro }}
+        run: |
+          cd roles/server
+          molecule test
