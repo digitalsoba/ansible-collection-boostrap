@@ -5,7 +5,7 @@
     state: present
     groups: "{{ sudogroup }}"
     shell: /bin/bash
-    createhome: yes
+    createhome: true
 
 - name: Add user to sudoers file
   ansible.builtin.copy:
@@ -34,4 +34,4 @@
   ansible.builtin.systemd:
     name: sshd
     state: started
-    enabled: yes
+    enabled: true
