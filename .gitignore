@@ -129,6 +129,7 @@ venv/*
 ENV/
 env.bak/
 venv.bak/
+*.tar.gz
 
 # Spyder project settings
 .spyderproject
