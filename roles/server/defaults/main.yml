@@ -4,7 +4,6 @@ user: digitalsoba
 github_keys: https://github.com/digitalsoba.keys
 common_packages:
   - ca-certificates
-  - curl
   - gnupg
   - htop
   - openssh-server
@@ -15,6 +14,7 @@ common_packages:
   - vim
 apt_packages:
   - apt-transport-https
+  - curl
   - gnupg-agent
   - software-properties-common
   - unattended-upgrades
