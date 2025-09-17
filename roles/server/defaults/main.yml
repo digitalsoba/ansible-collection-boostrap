@@ -16,6 +16,5 @@ apt_packages:
   - apt-transport-https
   - curl
   - gnupg-agent
-  - software-properties-common
   - unattended-upgrades
 sudogroup: "{{ 'sudo' if ansible_facts['os_family'] == 'Debian' else 'wheel' }}"
